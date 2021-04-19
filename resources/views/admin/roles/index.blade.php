@@ -1,0 +1,61 @@
+@extends('layouts.app')
+
+@section('title', 'Roles')
+
+@section('content')
+
+
+<div class="col-lg-12">
+	<h1 class="page-header">All Roles</h1>
+</div>
+<div class="row">
+    <section class="content">
+	<div class="col-lg-12">
+		@include('msgs.success')
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				List Of All Roles <a href="{{ url('/home') }}" class="col-2 pull-right" style="text-decoration: none;"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+				@if(!empty($permissions))
+				<table id="example1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>S/N</th>
+							<th>Name</th>
+							<th>Descriptions</th>
+							<th>Created Day</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						@foreach($permissions as $key=>$permission)
+						<tr class="odd gradeX">
+							<td>{{ ++$counts }}</td>
+							<td>{{ $permission->name }}</td>
+							<td class="center">{{ $permission->slug }}</td>
+                            <td>{{date("F jS, Y", strtotime($permission->created_at))}}</td>
+
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+				@else
+				<div class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>No Permission found</strong>
+				</div>
+				@endif
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+
+
+<!-- /.row -->
+</section>
+@endsection
