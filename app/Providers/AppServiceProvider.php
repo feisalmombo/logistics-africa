@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Schema;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // This for HTTPS CERTIFICATES
+        if(env('FORCE_HTTPS',true)) {
+            URL::forceScheme('https');
+        }
+
+        if (app()->environment('remote')) {
+            URL::forceSchema('https');
+        }
     }
 }
