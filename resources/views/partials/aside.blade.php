@@ -157,6 +157,22 @@
     </li>
     @endif
 
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    <li class="treeview">
+            <a href="#">
+                <i class="fa fa-square"></i>
+                <span>Purchase order</span>
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{ url('/payment/vouchers') }}"><i class="fa fa-clipboard"></i> Payment voucher</a></li>
+                <li><a href="{{ url('/payment/voucherscreate') }}"><i class="fa fa-plus"></i> Add payment voucher</a></li>
+            </ul>
+    </li>
+    @endif
+
 
     @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
     <li class="treeview">
