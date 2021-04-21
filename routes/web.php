@@ -82,31 +82,34 @@ Route::group(['middleware' => 'CheckUserStatus'], function () {
 
             // Project controller
             Route::resource('/projects', 'ProjectsController');
-            Route::post('/projects', 'ProjectsController@store'); 
+            Route::post('/projects', 'ProjectsController@store');
 
             // Budget Expenditure Controller
             Route::resource('/budget/expenditures', 'BudgetExpendituresController');
-            Route::post('/budget/expenditures', 'BudgetExpendituresController@store');  
+            Route::post('/budget/expenditures', 'BudgetExpendituresController@store');
 
             // Kind Procurement Controller
             Route::resource('/kind/procurements', 'KindProcurementsController');
-            Route::post('/kind/procurements', 'KindProcurementsController@store'); 
+            Route::post('/kind/procurements', 'KindProcurementsController@store');
 
-            // Insurance Monitoring Controller 
+            // Insurance Monitoring Controller
             Route::resource('/insurance/monitorings', 'InsuranceMonitoringsController');
-            Route::post('/insurance/monitorings', 'InsuranceMonitoringsController@store'); 
+            Route::post('/insurance/monitorings', 'InsuranceMonitoringsController@store');
 
             // Vehicle log sheet controller
             Route::resource('/vehicle/log/sheets', 'VehicleLogSheetsController');
-            Route::post('/vehicle/log/sheets', 'VehicleLogSheetsController@store'); 
+            Route::post('/vehicle/log/sheets', 'VehicleLogSheetsController@store');
 
             // Maintenance monitoring assets controller
             Route::resource('/maintenance/monitoring/assets', 'MaintenanceMonitoringAssetsController');
             Route::post('/maintenance/monitoring/assets', 'MaintenanceMonitoringAssetsController@store');
-            
+
             // Procurement requests controller
             Route::resource('/procurement/requests', 'ProcurementRequestsController');
             Route::post('/procurement/requests', 'ProcurementRequestsController@store');
+
+            // Notification controller
+            Route::resource('/notifications', 'NotificationController');
 
             // Permissions Controller
             Route::get('/settings/manage_users/permissions/entrust_user', 'PermissionsController@entrust_user');

@@ -55,6 +55,7 @@
                 @if(Auth::user() && !Auth::user()->can('') && count($checkedrequests = App\ProcurementRequest::where('procurement_requests.checked_status', '=', 'Checked')
                     ->join('users','procurement_requests.user_id','=','users.id')
                     ->select('procurement_requests.id','procurement_requests.created_at', 'procurement_requests.request_number', 'users.first_name', 'users.last_name')
+                    ->latest()
                     ->get()
                     ))
 
@@ -73,6 +74,7 @@
                     @if(Auth::user()->can('') && count($notifications = DB::table('procurement_requests')
                         ->join('users','procurement_requests.user_id','=','users.id')
                         ->select('procurement_requests.id','procurement_requests.created_at', 'procurement_requests.request_number', 'users.first_name', 'users.last_name')
+                        ->latest()
                         ->get()
                         ))
 

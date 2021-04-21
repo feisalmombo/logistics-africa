@@ -24,8 +24,9 @@
                 <th>Budget Line</th>
                 <th>Quantity</th>
                 <th>Project Name</th>
-                <th>Kind Procurement</th>
+                <th>Status</th>
                 <th>Delivery within</th>
+                <th>Kind Procurement</th>
                 <th>Show</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -34,13 +35,16 @@
         </thead>
         <tbody>
             @foreach($procurementrequests as $key=>$procurementrequest)
-            <tr class="odd gradeX">
+            @if($procurementrequest->checked_status ==='Checked')
+            <tr class="odd gradeX" style="background-color: #c3e6cb;">
             <td>{{$key + 1 }}</td>
             <td>{{$procurementrequest->request_number}}</td>
             <td>{{$procurementrequest->decription_items}}</td>
             <td>{{$procurementrequest->budget_line}}</td>
             <td>{{$procurementrequest->quantity}}</td>
             <td>{{$procurementrequest->project_name}}</td>
+            <td>{{$procurementrequest->checked_status }}</td>
+            <td>{{$procurementrequest->kind_procurement_name}}</td>
             <td>{{$procurementrequest->kind_procurement_name}}</td>
             <td>{{$procurementrequest->delivery_within}}</td>
             </td>
@@ -48,6 +52,7 @@
             <td>Edit</td>
             <td>Delete</td>
             </tr>
+            @endif
             @endforeach
         </tbody>
     </table>
