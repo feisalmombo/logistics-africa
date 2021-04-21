@@ -141,6 +141,22 @@
     </li>
     @endif
 
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    <li class="treeview">
+            <a href="#">
+                <i class="fa fa-square"></i>
+                <span>Purchase order</span>
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{ url('/purchase/orders') }}"><i class="fa fa-clipboard"></i> Purchase order</a></li>
+                <li><a href="{{ url('/purchase/orders/create') }}"><i class="fa fa-plus"></i> Add purchase order</a></li>
+            </ul>
+    </li>
+    @endif
+
 
     @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
     <li class="treeview">

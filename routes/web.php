@@ -108,6 +108,10 @@ Route::group(['middleware' => 'CheckUserStatus'], function () {
             Route::resource('/procurement/requests', 'ProcurementRequestsController');
             Route::post('/procurement/requests', 'ProcurementRequestsController@store');
 
+            // Purchase orders controller
+            Route::resource('/purchase/orders', 'PurchaseOrdersController');
+            Route::post('/purchase/orders', 'PurchaseOrdersController@store');
+
             // Notification controller
             Route::resource('/notifications', 'NotificationController');
 
