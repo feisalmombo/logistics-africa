@@ -18,13 +18,13 @@ class CheckUserStatus
     {
         if (Auth::user()) {
 
-        // $status=UserStatus::where('user_id',Auth::user()->id)->select('slug')->first();
+        $status=UserStatus::where('user_id',Auth::user()->id)->select('slug')->first();
 
-        // if (!$status->slug) {
+        if (!$status->slug) {
 
-        //     return redirect('/change_password')->with('message','Your account is currently inactive please change password to activate it');
+            return redirect('/change_password')->with('message','Your account is currently inactive please change password to activate it');
 
-        // }
+        }
         return $next($request);
         }
         else{

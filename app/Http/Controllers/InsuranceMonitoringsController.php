@@ -23,7 +23,7 @@ class InsuranceMonitoringsController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $this->middleware(function ($request, $next) {
@@ -32,7 +32,7 @@ class InsuranceMonitoringsController extends Controller
             }
             return redirect()->back();
         });
-        
+
         $insurances = DB::table('insurance_monitorings')
             ->join('projects', 'insurance_monitorings.project_id', '=', 'projects.id')
             ->join('users', 'insurance_monitorings.user_id', '=', 'users.id')
@@ -154,13 +154,13 @@ class InsuranceMonitoringsController extends Controller
              }
              return redirect()->back();
          });
- 
+
          $uid = \Auth::id();
          $insurance = InsuranceMonitoring::findOrFail($id);
          $insurance->delete();
          ActivityLog::where('changetype', 'Delete Insurance monitoring')->update(['user_id' => $uid]);
- 
- 
+
+
          $request->session()->flash('message', 'Insurance monitoring is successfully deleted');
          return back();
      }

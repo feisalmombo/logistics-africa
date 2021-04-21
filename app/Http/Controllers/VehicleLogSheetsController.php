@@ -143,11 +143,11 @@ class VehicleLogSheetsController extends Controller
              return redirect()->back();
          });
 
-         $uid = \Auth::id(); 
+         $uid = \Auth::id();
          $vehicle = VehicleLogSheet::findOrFail($id);
          $vehicle->delete();
          ActivityLog::where('changetype', 'Delete Vehicle log sheet')->update(['user_id' => $uid]);
-         
+
          $request->session()->flash('message', 'Vehicle log sheet is successfully deleted');
          return back();
      }

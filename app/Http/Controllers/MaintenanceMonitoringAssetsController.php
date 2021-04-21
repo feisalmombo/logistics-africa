@@ -147,11 +147,11 @@ class MaintenanceMonitoringAssetsController extends Controller
              return redirect()->back();
          });
 
-         $uid = \Auth::id(); 
+         $uid = \Auth::id();
          $maintenance = MaintenanceMonitoringAsset::findOrFail($id);
          $maintenance->delete();
          ActivityLog::where('changetype', 'Delete Maintenance monitoring asset')->update(['user_id' => $uid]);
-         
+
          $request->session()->flash('message', 'Maintenance monitoring asset is successfully deleted');
          return back();
      }

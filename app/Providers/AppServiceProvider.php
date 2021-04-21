@@ -29,12 +29,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // This for HTTPS CERTIFICATES
-        if(env('FORCE_HTTPS',true)) {
-            URL::forceScheme('https');
-        }
+        // if(env('FORCE_HTTPS',true)) {
+        //     URL::forceScheme('https');
+        // }
 
-        if (app()->environment('remote')) {
-            URL::forceSchema('https');
-        }
+        // if (app()->environment('remote')) {
+        //     URL::forceSchema('https');
+        // }
     }
 }
