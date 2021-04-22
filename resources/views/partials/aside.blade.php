@@ -45,7 +45,7 @@
     </li>
     @endif
 
-        @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
+    {{-- @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -59,9 +59,9 @@
                 <li><a href="{{ url('/kind/procurements/create') }}"><i class="fa fa-plus"></i> Add procurement</a></li>
             </ul>
     </li>
-    @endif
+    @endif --}}
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
+   {{-- @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -75,7 +75,7 @@
                 <li><a href="{{ url('/budget/expenditures/create') }}"><i class="fa fa-plus"></i> Add budget expenditure</a></li>
             </ul>
     </li>
-    @endif
+    @endif --}}
 
     @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
