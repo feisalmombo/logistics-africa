@@ -14,7 +14,7 @@
         </ul>
     </li>
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
         <a href="#">
             <i class="fa fa-user"></i>
@@ -29,7 +29,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -45,7 +45,7 @@
     </li>
     @endif
 
-        @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+        @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -61,7 +61,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -77,7 +77,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -93,7 +93,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -109,7 +109,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -125,7 +125,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -141,7 +141,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
@@ -157,11 +157,11 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-square"></i>
-                <span>Purchase order</span>
+                <span>Payment Voucher</span>
                 <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -174,7 +174,7 @@
     @endif
 
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
         <a href="#">
             <i class="fa fa-universal-access"></i> <span>Manage Permissions</span>
@@ -199,7 +199,7 @@
     </li>
     @endif
 
-    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
         <a href="#">
             <i class="fa fa-times"></i> <span>Manage Roles</span>
@@ -242,7 +242,7 @@
 
     </li>
 
-    {{--  @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('staff'))
+    {{--  @if(Auth::user()->hasRole('developer') || Auth::user()->hasRole('administrator'))
     <li class="treeview">
             <a href="#">
                 <i class="fa fa-comment"></i>

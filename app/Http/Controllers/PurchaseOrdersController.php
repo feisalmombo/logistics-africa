@@ -32,7 +32,36 @@ class PurchaseOrdersController extends Controller
             return redirect()->back();
         });
 
-        $purchases = PurchasesOrder::all();
+        $purchases = DB::table('purchases_orders')
+        ->join('projects', 'purchases_orders.project_id', '=', 'projects.id')
+        ->join('users', 'purchases_orders.user_id', '=', 'users.id')
+        ->select(
+        'purchases_orders.id',
+        'purchases_orders.date',
+        'purchases_orders.to',
+        'purchases_orders.reference_number',
+        'purchases_orders.code',
+        'purchases_orders.decription_items',
+        'purchases_orders.quantity',
+        'purchases_orders.unit_price',
+        'purchases_orders.amount',
+        'purchases_orders.invoice_to',
+        'purchases_orders.tin_number',
+        'purchases_orders.invoice_address',
+        'projects.project_name',
+        'purchases_orders.delivery_date',
+        'purchases_orders.delivery_address',
+        'purchases_orders.terms_delivery',
+        'purchases_orders.terms_payment',
+        'users.first_name',
+        'users.last_name',
+        'users.email',
+        'users.phone_number',
+        'purchases_orders.signature_attachments',
+        'purchases_orders.status',
+        'purchases_orders.created_at')
+        ->latest()
+        ->get();
 
         return view('purchaseOrder.index')->with('purchases', $purchases);
     }

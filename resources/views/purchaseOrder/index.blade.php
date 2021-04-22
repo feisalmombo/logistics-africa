@@ -19,7 +19,15 @@
         <thead>
             <tr>
                 <th>S/N</th>
-                <th>Project Name</th>
+                <th>Reference number</th>
+                <th>Code</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+                <th>Tin number</th>
+                <th>Project name</th>
+                <th>Invoice address</th>
+                <th>Delivery address</th>
                 <th>Show</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -32,11 +40,19 @@
             @foreach($purchases as $key=>$purchase)
             <tr class="odd gradeX">
             <td>{{$key + 1 }}</td>
+            <td>{{$purchase->reference_number}}</td>
+            <td>{{$purchase->code}}</td>
+            <td>{{$purchase->quantity}}</td>
+            <td>{{$purchase->unit_price}}</td>
+            <td>{{$purchase->amount}}</td>
+            <td>{{$purchase->tin_number}}</td>
             <td>{{$purchase->project_name}}</td>
+            <td>{{$purchase->invoice_address}}</td>
+            <td>{{$purchase->delivery_address}}</td>
             <td>Show</td>
             <td>Edit</td>
             <td>Delete</td>
-            <td>{{$purchase->created_at->diffForHumans() }}</td>
+            <td>{{ \Carbon\Carbon::parse($purchase->created_at)->diffForHumans() }}</td>
             </tr>
             @endforeach
         </tbody>

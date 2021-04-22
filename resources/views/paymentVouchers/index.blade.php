@@ -20,11 +20,17 @@
             <tr>
                 <th>S/N</th>
                 <th>Project Name</th>
+                <th>Country office</th>
+                <th>Bank name</th>
+                <th>Cash payment</th>
+                <th>Cheque number</th>
+                <th>Quantity</th>
+                <th>Beneficiary name</th>
+                <th>Beneficiary address</th>
                 <th>Show</th>
                 <th>Edit</th>
                 <th>Delete</th>
                 <th>Duration</th>
-
             </tr>
         </thead>
         <tbody>
@@ -33,10 +39,17 @@
             <tr class="odd gradeX">
             <td>{{$key + 1 }}</td>
             <td>{{$payment->project_name}}</td>
+            <td>{{$payment->country_office}}</td>
+            <td>{{$payment->bank_name}}</td>
+            <td>{{$payment->cash_payment}}</td>
+            <td>{{$payment->cheque_number}}</td>
+            <td>{{$payment->quantity}}</td>
+            <td>{{$payment->beneficiary_name}}</td>
+            <td>{{$payment->beneficiary_address}}</td>
             <td>Show</td>
             <td>Edit</td>
             <td>Delete</td>
-            <td>{{$payment->created_at->diffForHumans() }}</td>
+            <td>{{ \Carbon\Carbon::parse($payment->created_at)->diffForHumans() }}</td>
             </tr>
             @endforeach
         </tbody>

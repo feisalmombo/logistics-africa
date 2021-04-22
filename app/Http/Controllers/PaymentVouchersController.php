@@ -32,7 +32,34 @@ class PaymentVouchersController extends Controller
             return redirect()->back();
         });
 
-        $payments = PaymentVoucher::all();
+        $payments = DB::table('payment_vouchers')
+        ->join('projects', 'payment_vouchers.project_id', '=', 'projects.id')
+        ->join('users', 'payment_vouchers.user_id', '=', 'users.id')
+        ->select(
+        'payment_vouchers.id',
+        'projects.project_name',
+        'payment_vouchers.country_office',
+        'payment_vouchers.date',
+        'payment_vouchers.beneficiary_name',
+        'payment_vouchers.beneficiary_address',
+        'payment_vouchers.cash_payment',
+        'payment_vouchers.amount_words',
+        'payment_vouchers.cheque_number',
+        'payment_vouchers.bank_name',
+        'payment_vouchers.quantity',
+        'payment_vouchers.description',
+        'payment_vouchers.rate',
+        'payment_vouchers.profoma_invoice_amount',
+        'payment_vouchers.signature_attachments',
+        'payment_vouchers.approved_status',
+        'payment_vouchers.payee_signature',
+        'users.first_name',
+        'users.last_name',
+        'users.email',
+        'users.phone_number',
+        'payment_vouchers.created_at')
+        ->latest()
+        ->get();
 
         return view('paymentVouchers.index')->with('payments', $payments);
     }
